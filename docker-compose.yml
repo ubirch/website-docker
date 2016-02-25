@@ -1,0 +1,31 @@
+#
+
+webserver:
+  image: maxheadroom/webserver
+  volumes_from:
+   - webserver-data
+  links:
+   - mysql:mysql
+mysql:
+  image: mysql
+  volumes_from:
+   - mysql-data
+  environment:
+   - MYSQL_ROOT_PASSWORD=hal9000
+dathe:
+  image: maxheadroom/webserver
+  volumes_from:
+    - dathe-data
+  links:
+    - mysql:mysql
+nginx:
+  image: nginx
+  volumes:
+    - /opt/DOCKER/nginx/config/nginx:/etc/nginx:ro
+  links:
+    - webserver:webserver
+    - dathe:dathe
+  ports:
+    - "78.46.181.253:80:80"
+    - "78.46.181.249:80:80"
+    - "78.46.181.249:443:443"
