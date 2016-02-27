@@ -1,11 +1,11 @@
 
 webserver:
-  image: maxheadroom/webserver
+  image: ubirch/webserver
   volumes_from:
-   - webserver-data
+   - ubirch-data
   links:
    - mysql:mysql
 mysql:
   image: mysql
   volumes_from:
-   - mysql-data
+   - ubirch-data
