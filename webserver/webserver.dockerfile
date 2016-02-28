@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER falko@zurell.de
+MAINTAINER falko.zurell@ubirch.com
 RUN apt-get update \
       && DEBIAN_FRONTEND=noninteractive apt-get install -y vim ssh ca-certificates libapache2-mod-svn libapache2-mod-php5 libjs-cropper libphp-phpmailer libphp-snoopy mysql-client php5-gd php5-mysql libjpeg-turbo-progs optipng gifsicle \
       && a2enmod rewrite \
