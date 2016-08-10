@@ -10,5 +10,9 @@ Create data persistence container for database:
 
 ``` 
 $ cd database
-$ docker build -t mysql-data -f docker-data.dockerfile .
+$ docker build -f database-data.dockerfile .
+[...]
+Removing intermediate container ca4900ad3a33
+Successfully built 93078858e4e4
+$ docker run --name mysql-data 93078858e4e4
 ```
